@@ -8,18 +8,40 @@
 .title {
    font-size: 36px;
 }
+form {
+   display: grid;
+   flex-direction: column;
+   padding: 20px;
+}
 
 li {
    list-style: none;
    padding: 4px;
 }
 
-.quiz {
-   display: grid;
-}
-
 button {
    width: 60px;
+}
+
+.result {
+   font-size: 24px;
+   display: flex;
+   justify-content: center;
+   padding: 20px;
+}
+
+label {
+   padding: 2px;
+}
+
+.score-page {
+   flex-direction: column;
+   display: flex;
+   align-items: center;
+}
+
+h2 {
+   padding: 20px;
 }
 
 .App-logo {
