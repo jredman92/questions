@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+
+const questions = [
+   {
+      prompt: "What color is the sky",
+      correctAnswer: "blue",
+      answers: ["blue", "red", "orange", "green"],
+   },
+];
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+   const currentQuestion = questions[currentQuestionIndex];
+
+   return (
+      <div className="App">
+         <div className="quiz">
+            <h1>{currentQuestion.prompt}</h1>
+
+            {currentQuestion.answers.map((answer, idx) => {
+               return (
+                  <label>
+                     <input
+                        key={idx}
+                        type="radio"
+                        name="answer"
+                     ></input>
+                     {answer}
+                  </label>
+               );
+            })}
+
+            <button>Submit</button>
+         </div>
+      </div>
+   );
 }
 
 export default App;
